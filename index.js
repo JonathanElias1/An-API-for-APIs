@@ -1,14 +1,3 @@
-/* 
-    Fetch the list of 642 open APIs from
-        https://api.publicapis.org/entries
-        
-    Create a my-api component
-        display the name and category of the API,
-        the description, and also display the type 
-        of Auth (if any) and whether or not the API 
-        supports HTTPS
-*/
-
 async function getAPIs() {
   let response = await fetch(`https://api.publicapis.org/entries`);
   let data = await response.json();
@@ -30,10 +19,6 @@ function getAPIhtml(myAPI) {
 }
 
 function displayAPIs(myAPIs) {
-  console.log(myAPIs.entries[0]);
-
-  //we make our first API a variable to make it so we have less to type
-  let firstAPI = myAPIs.entries[0];
   myAPIs = myAPIs.entries;
   document.body.innerHTML = `<div class=my-apis">
   ${myAPIs.map(getAPIhtml).join(``)} </div>`;
